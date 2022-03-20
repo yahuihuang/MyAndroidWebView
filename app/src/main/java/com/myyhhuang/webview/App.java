@@ -35,7 +35,7 @@ public class App extends Application {
             public void onViewInitFinished(boolean arg0) {
                 //x5內核初始化完成的回調，為true表示x5內核加載成功，否則表示x5內核加載失敗，會自動切換到系統內核。
                 if (!arg0) {
-                    Log.e("ByWebView", "x5內核加載失敗，自動切換到系統內核");
+                    Log.e("WebView", "x5內核加載失敗，自動切換到系統內核");
                 }
             }
 

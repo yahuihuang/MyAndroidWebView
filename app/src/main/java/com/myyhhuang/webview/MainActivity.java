@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         state = 0;
-                        loadUrl("https://github.com/yahuihuang/MyAndroidWebView", "ByWebView");
+                        loadUrl("https://github.com/yahuihuang/MyAndroidWebView", "WebView");
                     }
                 });
                 builder.show();
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         state = 0;
 //        String url = ByWebTools.getUrl(etSearch.getText().toString().trim());
         String url = etSearch.getText().toString().trim();
-        loadUrl(!TextUtils.isEmpty(url) ? url : "https://github.com/yahuihuang/MyAndroidWebView", "ByWebView");
+        loadUrl(!TextUtils.isEmpty(url) ? url : "https://github.com/yahuihuang/MyAndroidWebView", "WebView");
     }
 
     @Override
@@ -147,11 +147,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (item.getItemId()) {
             case R.id.actionbar_update:
                 state = 0;
-                loadUrl("https://github.com/yahuihuang/download/raw/main/ByWebView.apk", "ByWebView.apk");
+                loadUrl("https://github.com/yahuihuang/MyAndroidWebView/MyAndroidWebView.apk", "MyAndroidWebView.apk");
                 break;
             case R.id.actionbar_about:
                 state = 0;
-                loadUrl("https://github.com/yahuihuang/MyAndroidWebView", "ByWebView");
+                loadUrl("https://github.com/yahuihuang/MyAndroidWebView", "WebView");
                 break;
             default:
                 break;
