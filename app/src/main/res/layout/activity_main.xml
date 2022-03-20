@@ -47,9 +47,9 @@
             android:textColor="#37474F" />
 
         <TextView
-            android:id="@+id/bt_baidu"
+            android:id="@+id/bt_youtube"
             style="@style/textStyle"
-            android:text="@string/text_baidu" />
+            android:text="@string/text_youtube" />
 
         <View
             style="@style/lineStyle"

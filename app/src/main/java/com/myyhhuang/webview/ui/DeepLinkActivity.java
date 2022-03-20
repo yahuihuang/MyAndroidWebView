@@ -12,7 +12,7 @@ import com.myyhhuang.webview.R;
 import java.util.List;
 
 /**
- * 测试DeepLink打开页面
+ * 測試DeepLink打開頁面
  */
 public class DeepLinkActivity extends AppCompatActivity {
 
@@ -25,8 +25,8 @@ public class DeepLinkActivity extends AppCompatActivity {
     }
 
     /**
-     * 从deep link中获取数据
-     * 'scheme://host/path?传过来的数据' 示例：will://link/testId?type=1&id=345
+     * 從deep link中獲取數據
+     * 'scheme://host/path?傳過來的數據' 示例：will://link/testId?type=1&id=345
      */
     private void getDataFromBrowser(TextView textView) {
         Uri data = getIntent().getData();
@@ -34,7 +34,7 @@ public class DeepLinkActivity extends AppCompatActivity {
             String scheme = data.getScheme();
             String host = data.getHost();
             String path = data.getPath();
-            // 从网页传过来的数据
+            // 從網頁傳過來的數據
             String query = data.getQuery();
             String text = "scheme: " + scheme + "\n" + "host: " + host + "\n" + "path: " + path + "\n" + "query: " + query;
             Log.e("ScrollingActivity", text);

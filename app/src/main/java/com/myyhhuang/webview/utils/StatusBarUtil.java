@@ -14,34 +14,27 @@ import android.widget.LinearLayout;
 import androidx.annotation.ColorInt;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-/**
- * Created by Jaeger on 16/2/14.
- * <p>
- * Email: chjie.jaeger@gmail.com
- * GitHub: https://github.com/laobie
- */
 public class StatusBarUtil {
 
     public static final int DEFAULT_STATUS_BAR_ALPHA = 112;
 
     /**
-     * 设置状态栏颜色
+     * 設置狀態欄顏色
      *
-     * @param activity 需要设置的 activity
-     * @param color    状态栏颜色值
+     * @param activity 需要設置的 activity
+     * @param color    狀態欄顏色值
      */
     public static void setColor(Activity activity, @ColorInt int color) {
         setColor(activity, color, DEFAULT_STATUS_BAR_ALPHA);
     }
 
     /**
-     * 设置状态栏颜色
+     * 設置狀態欄顏色
      *
-     * @param activity       需要设置的activity
-     * @param color          状态栏颜色值
-     * @param statusBarAlpha 状态栏透明度
+     * @param activity       需要設置的activity
+     * @param color          狀態欄顏色值
+     * @param statusBarAlpha 狀態欄透明度
      */
-
     public static void setColor(Activity activity, @ColorInt int color, int statusBarAlpha) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -62,20 +55,20 @@ public class StatusBarUtil {
     }
 
     /**
-     * 设置状态栏纯色 不加半透明效果
+     * 設置狀態欄純色 不加半透明效果
      *
-     * @param activity 需要设置的 activity
-     * @param color    状态栏颜色值
+     * @param activity 需要設置的 activity
+     * @param color    狀態欄顏色值
      */
     public static void setColorNoTranslucent(Activity activity, @ColorInt int color) {
         setColor(activity, color, 0);
     }
 
     /**
-     * 设置状态栏颜色(5.0以下无半透明效果,不建议使用)
+     * 設置狀態欄顏色(5.0以下無半透明效果,不建議使用)
      *
-     * @param activity 需要设置的 activity
-     * @param color    状态栏颜色值
+     * @param activity 需要設置的 activity
+     * @param color    狀態欄顏色值
      */
     @Deprecated
     public static void setColorDiff(Activity activity, @ColorInt int color) {
@@ -96,23 +89,23 @@ public class StatusBarUtil {
     }
 
     /**
-     * 使状态栏半透明
+     * 使狀態欄半透明
      * <p>
-     * 适用于图片作为背景的界面,此时需要图片填充到状态栏
+     * 適用於圖片作為背景的界面,此時需要圖片填充到狀態欄
      *
-     * @param activity 需要设置的activity
+     * @param activity 需要設置的activity
      */
     public static void setTranslucent(Activity activity) {
         setTranslucent(activity, DEFAULT_STATUS_BAR_ALPHA);
     }
 
     /**
-     * 使状态栏半透明
+     * 使狀態欄半透明
      * <p>
-     * 适用于图片作为背景的界面,此时需要图片填充到状态栏
+     * 適用於圖片作為背景的界面,此時需要圖片填充到狀態欄
      *
-     * @param activity       需要设置的activity
-     * @param statusBarAlpha 状态栏透明度
+     * @param activity       需要設置的activity
+     * @param statusBarAlpha 狀態欄透明度
      */
     public static void setTranslucent(Activity activity, int statusBarAlpha) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
@@ -123,12 +116,12 @@ public class StatusBarUtil {
     }
 
     /**
-     * 针对根布局是 CoordinatorLayout, 使状态栏半透明
+     * 針對根佈局是 CoordinatorLayout, 使狀態欄半透明
      * <p>
-     * 适用于图片作为背景的界面,此时需要图片填充到状态栏
+     * 適用於圖片作為背景的界面,此時需要圖片填充到狀態欄
      *
-     * @param activity       需要设置的activity
-     * @param statusBarAlpha 状态栏透明度
+     * @param activity       需要設置的activity
+     * @param statusBarAlpha 狀態欄透明度
      */
     public static void setTranslucentForCoordinatorLayout(Activity activity, int statusBarAlpha) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
@@ -139,9 +132,9 @@ public class StatusBarUtil {
     }
 
     /**
-     * 设置状态栏全透明
+     * 設置狀態欄全透明
      *
-     * @param activity 需要设置的activity
+     * @param activity 需要設置的activity
      */
     public static void setTransparent(Activity activity) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
@@ -152,11 +145,11 @@ public class StatusBarUtil {
     }
 
     /**
-     * 使状态栏透明(5.0以上半透明效果,不建议使用)
+     * 使狀態欄透明(5.0以上半透明效果,不建議使用)
      * <p>
-     * 适用于图片作为背景的界面,此时需要图片填充到状态栏
+     * 適用於圖片作為背景的界面,此時需要圖片填充到狀態欄
      *
-     * @param activity 需要设置的activity
+     * @param activity 需要設置的activity
      */
     @Deprecated
     public static void setTranslucentDiff(Activity activity) {
@@ -168,34 +161,34 @@ public class StatusBarUtil {
     }
 
     /**
-     * 为DrawerLayout 布局设置状态栏变色
+     * 為DrawerLayout 佈局設置狀態欄變色
      *
-     * @param activity     需要设置的activity
+     * @param activity     需要設置的activity
      * @param drawerLayout DrawerLayout
-     * @param color        状态栏颜色值
+     * @param color        狀態欄顏色值
      */
     public static void setColorForDrawerLayout(Activity activity, DrawerLayout drawerLayout, @ColorInt int color) {
         setColorForDrawerLayout(activity, drawerLayout, color, DEFAULT_STATUS_BAR_ALPHA);
     }
 
     /**
-     * 为DrawerLayout 布局设置状态栏颜色,纯色
+     * 為DrawerLayout 佈局設置狀態欄顏色,純色
      *
-     * @param activity     需要设置的activity
+     * @param activity     需要設置的activity
      * @param drawerLayout DrawerLayout
-     * @param color        状态栏颜色值
+     * @param color        狀態欄顏色值
      */
     public static void setColorNoTranslucentForDrawerLayout(Activity activity, DrawerLayout drawerLayout, @ColorInt int color) {
         setColorForDrawerLayout(activity, drawerLayout, color, 0);
     }
 
     /**
-     * 为DrawerLayout 布局设置状态栏变色
+     * 為DrawerLayout 佈局設置狀態欄變色
      *
-     * @param activity       需要设置的activity
+     * @param activity       需要設置的activity
      * @param drawerLayout   DrawerLayout
-     * @param color          状态栏颜色值
-     * @param statusBarAlpha 状态栏透明度
+     * @param color          狀態欄顏色值
+     * @param statusBarAlpha 狀態欄透明度
      */
     public static void setColorForDrawerLayout(Activity activity, DrawerLayout drawerLayout, @ColorInt int color,
                                                int statusBarAlpha) {
@@ -209,8 +202,8 @@ public class StatusBarUtil {
         } else {
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
-        // 生成一个状态栏大小的矩形
-        // 添加 statusBarView 到布局中
+        // 生成一個狀態欄大小的矩形
+        // 添加 statusBarView 到佈局中
         ViewGroup contentLayout = (ViewGroup) drawerLayout.getChildAt(0);
         if (contentLayout.getChildCount() > 0 && contentLayout.getChildAt(0) instanceof StatusBarView) {
             contentLayout.getChildAt(0).setBackgroundColor(calculateStatusColor(color, statusBarAlpha));
@@ -218,13 +211,13 @@ public class StatusBarUtil {
             StatusBarView statusBarView = createStatusBarView(activity, color);
             contentLayout.addView(statusBarView, 0);
         }
-        // 内容布局不是 LinearLayout 时,设置padding top
+        // 內容佈局不是 LinearLayout 時,設置padding top
         if (!(contentLayout instanceof LinearLayout) && contentLayout.getChildAt(1) != null) {
             contentLayout.getChildAt(1)
                     .setPadding(contentLayout.getPaddingLeft(), getStatusBarHeight(activity) + contentLayout.getPaddingTop(),
                             contentLayout.getPaddingRight(), contentLayout.getPaddingBottom());
         }
-        // 设置属性
+        // 設置屬性
         ViewGroup drawer = (ViewGroup) drawerLayout.getChildAt(1);
         drawerLayout.setFitsSystemWindows(false);
         contentLayout.setFitsSystemWindows(false);
@@ -235,30 +228,30 @@ public class StatusBarUtil {
     }
 
     /**
-     * 为DrawerLayout 布局设置状态栏变色(5.0以下无半透明效果,不建议使用)
+     * 為DrawerLayout 佈局設置狀態欄變色(5.0以下無半透明效果,不建議使用)
      *
-     * @param activity     需要设置的activity
+     * @param activity     需要設置的activity
      * @param drawerLayout DrawerLayout
-     * @param color        状态栏颜色值
+     * @param color        狀態欄顏色值
      */
     @Deprecated
     public static void setColorForDrawerLayoutDiff(Activity activity, DrawerLayout drawerLayout, @ColorInt int color) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            // 生成一个状态栏大小的矩形
+// 生成一個狀態欄大小的矩形
             ViewGroup contentLayout = (ViewGroup) drawerLayout.getChildAt(0);
             if (contentLayout.getChildCount() > 0 && contentLayout.getChildAt(0) instanceof StatusBarView) {
                 contentLayout.getChildAt(0).setBackgroundColor(calculateStatusColor(color, DEFAULT_STATUS_BAR_ALPHA));
             } else {
-                // 添加 statusBarView 到布局中
+                // 添加 statusBarView 到佈局中
                 StatusBarView statusBarView = createStatusBarView(activity, color);
                 contentLayout.addView(statusBarView, 0);
             }
-            // 内容布局不是 LinearLayout 时,设置padding top
+            // 內容佈局不是 LinearLayout 時,設置padding top
             if (!(contentLayout instanceof LinearLayout) && contentLayout.getChildAt(1) != null) {
                 contentLayout.getChildAt(1).setPadding(0, getStatusBarHeight(activity), 0, 0);
             }
-            // 设置属性
+            // 設置屬性
             ViewGroup drawer = (ViewGroup) drawerLayout.getChildAt(1);
             drawerLayout.setFitsSystemWindows(false);
             contentLayout.setFitsSystemWindows(false);
@@ -268,9 +261,9 @@ public class StatusBarUtil {
     }
 
     /**
-     * 为 DrawerLayout 布局设置状态栏透明
+     * 為 DrawerLayout 佈局設置狀態欄透明
      *
-     * @param activity     需要设置的activity
+     * @param activity     需要設置的activity
      * @param drawerLayout DrawerLayout
      */
     public static void setTranslucentForDrawerLayout(Activity activity, DrawerLayout drawerLayout) {
@@ -278,9 +271,9 @@ public class StatusBarUtil {
     }
 
     /**
-     * 为 DrawerLayout 布局设置状态栏透明
+     * 為 DrawerLayout 佈局設置狀態欄透明
      *
-     * @param activity     需要设置的activity
+     * @param activity     需要設置的activity
      * @param drawerLayout DrawerLayout
      */
     public static void setTranslucentForDrawerLayout(Activity activity, DrawerLayout drawerLayout, int statusBarAlpha) {
@@ -292,9 +285,9 @@ public class StatusBarUtil {
     }
 
     /**
-     * 为 DrawerLayout 布局设置状态栏透明
+     * 為 DrawerLayout 佈局設置狀態欄透明
      *
-     * @param activity     需要设置的activity
+     * @param activity     需要設置的activity
      * @param drawerLayout DrawerLayout
      */
     public static void setTransparentForDrawerLayout(Activity activity, DrawerLayout drawerLayout) {
@@ -310,12 +303,12 @@ public class StatusBarUtil {
         }
 
         ViewGroup contentLayout = (ViewGroup) drawerLayout.getChildAt(0);
-        // 内容布局不是 LinearLayout 时,设置padding top
+// 內容佈局不是 LinearLayout 時,設置padding top
         if (!(contentLayout instanceof LinearLayout) && contentLayout.getChildAt(1) != null) {
             contentLayout.getChildAt(1).setPadding(0, getStatusBarHeight(activity), 0, 0);
         }
 
-        // 设置属性
+        // 設置屬性
         ViewGroup drawer = (ViewGroup) drawerLayout.getChildAt(1);
         drawerLayout.setFitsSystemWindows(false);
         contentLayout.setFitsSystemWindows(false);
@@ -324,32 +317,32 @@ public class StatusBarUtil {
     }
 
     /**
-     * 为 DrawerLayout 布局设置状态栏透明(5.0以上半透明效果,不建议使用)
+     * 為 DrawerLayout 佈局設置狀態欄透明(5.0以上半透明效果,不建議使用)
      *
-     * @param activity     需要设置的activity
+     * @param activity     需要設置的activity
      * @param drawerLayout DrawerLayout
      */
     @Deprecated
     public static void setTranslucentForDrawerLayoutDiff(Activity activity, DrawerLayout drawerLayout) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            // 设置状态栏透明
+            // 設置狀態欄透明
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            // 设置内容布局属性
+            // 設置內容佈局屬性
             ViewGroup contentLayout = (ViewGroup) drawerLayout.getChildAt(0);
             contentLayout.setFitsSystemWindows(true);
             contentLayout.setClipToPadding(true);
-            // 设置抽屉布局属性
+            // 設置抽屜佈局屬性
             ViewGroup vg = (ViewGroup) drawerLayout.getChildAt(1);
             vg.setFitsSystemWindows(false);
-            // 设置 DrawerLayout 属性
+            // 設置 DrawerLayout 屬性
             drawerLayout.setFitsSystemWindows(false);
         }
     }
 
     /**
-     * 为头部是 ImageView 的界面设置状态栏全透明
+     * 為頭部是 ImageView 的界面設置狀態欄全透明
      *
-     * @param activity       需要设置的activity
+     * @param activity       需要設置的activity
      * @param needOffsetView 需要向下偏移的 View
      */
     public static void setTransparentForImageView(Activity activity, View needOffsetView) {
@@ -357,9 +350,9 @@ public class StatusBarUtil {
     }
 
     /**
-     * 为头部是 ImageView 的界面设置状态栏透明(使用默认透明度)
+     * 為頭部是 ImageView 的界面設置狀態欄透明(使用默認透明度)
      *
-     * @param activity       需要设置的activity
+     * @param activity       需要設置的activity
      * @param needOffsetView 需要向下偏移的 View
      */
     public static void setTranslucentForImageView(Activity activity, View needOffsetView) {
@@ -367,10 +360,10 @@ public class StatusBarUtil {
     }
 
     /**
-     * 为头部是 ImageView 的界面设置状态栏透明
+     * 為頭部是 ImageView 的界面設置狀態欄透明
      *
-     * @param activity       需要设置的activity
-     * @param statusBarAlpha 状态栏透明度
+     * @param activity       需要設置的activity
+     * @param statusBarAlpha 狀態欄透明度
      * @param needOffsetView 需要向下偏移的 View
      */
     public static void setTranslucentForImageView(Activity activity, int statusBarAlpha, View needOffsetView) {
@@ -410,9 +403,9 @@ public class StatusBarUtil {
 
 
     /**
-     * 为 fragment 头部是 ImageView 的设置状态栏透明
+     * 為 fragment 頭部是 ImageView 的設置狀態欄透明
      *
-     * @param activity       fragment 对应的 activity
+     * @param activity       fragment 對應的 activity
      * @param needOffsetView 需要向下偏移的 View
      */
     public static void setTranslucentForImageViewInFragment(Activity activity, View needOffsetView) {
@@ -420,9 +413,9 @@ public class StatusBarUtil {
     }
 
     /**
-     * 为 fragment 头部是 ImageView 的设置状态栏透明
+     * 為 fragment 頭部是 ImageView 的設置狀態欄透明
      *
-     * @param activity       fragment 对应的 activity
+     * @param activity       fragment 對應的 activity
      * @param needOffsetView 需要向下偏移的 View
      */
     public static void setTransparentForImageViewInFragment(Activity activity, View needOffsetView) {
@@ -430,10 +423,10 @@ public class StatusBarUtil {
     }
 
     /**
-     * 为 fragment 头部是 ImageView 的设置状态栏透明
+     * 為 fragment 頭部是 ImageView 的設置狀態欄透明
      *
-     * @param activity       fragment 对应的 activity
-     * @param statusBarAlpha 状态栏透明度
+     * @param activity       fragment 對應的 activity
+     * @param statusBarAlpha 狀態欄透明度
      * @param needOffsetView 需要向下偏移的 View
      */
     public static void setTranslucentForImageViewInFragment(Activity activity, int statusBarAlpha, View needOffsetView) {
@@ -455,9 +448,9 @@ public class StatusBarUtil {
     }
 
     /**
-     * 添加半透明矩形条
+     * 添加半透明矩形條
      *
-     * @param activity       需要设置的 activity
+     * @param activity       需要設置的 activity
      * @param statusBarAlpha 透明值
      */
     private static void addTranslucentView(Activity activity, int statusBarAlpha) {
@@ -470,14 +463,14 @@ public class StatusBarUtil {
     }
 
     /**
-     * 生成一个和状态栏大小相同的彩色矩形条
+     * 生成一個和狀態欄大小相同的彩色矩形條
      *
-     * @param activity 需要设置的 activity
-     * @param color    状态栏颜色值
-     * @return 状态栏矩形条
+     * @param activity 需要設置的 activity
+     * @param color    狀態欄顏色值
+     * @return 狀態欄矩形條
      */
     private static StatusBarView createStatusBarView(Activity activity, @ColorInt int color) {
-        // 绘制一个和状态栏一样高的矩形
+        // 繪製一個和狀態欄一樣高的矩形
         StatusBarView statusBarView = new StatusBarView(activity);
         LinearLayout.LayoutParams params =
                 new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getStatusBarHeight(activity));
@@ -487,12 +480,12 @@ public class StatusBarUtil {
     }
 
     /**
-     * 生成一个和状态栏大小相同的半透明矩形条
+     * 生成一個和狀態欄大小相同的半透明矩形條
      *
-     * @param activity 需要设置的activity
-     * @param color    状态栏颜色值
+     * @param activity 需要設置的activity
+     * @param color    狀態欄顏色值
      * @param alpha    透明值
-     * @return 状态栏矩形条
+     * @return 狀態欄矩形條
      */
     private static StatusBarView createStatusBarView(Activity activity, @ColorInt int color, int alpha) {
         // 绘制一个和状态栏一样高的矩形
@@ -505,7 +498,7 @@ public class StatusBarUtil {
     }
 
     /**
-     * 设置根布局参数
+     * 設置根佈局參數
      */
     private static void setRootView(Activity activity) {
         ViewGroup rootView = (ViewGroup) ((ViewGroup) activity.findViewById(android.R.id.content)).getChildAt(0);
@@ -514,7 +507,7 @@ public class StatusBarUtil {
     }
 
     /**
-     * 使状态栏透明
+     * 使狀態欄透明
      */
     @TargetApi(Build.VERSION_CODES.KITKAT)
     private static void transparentStatusBar(Activity activity) {
@@ -529,13 +522,13 @@ public class StatusBarUtil {
     }
 
     /**
-     * 创建半透明矩形 View
+     * 創建半透明矩形 View
      *
      * @param alpha 透明值
      * @return 半透明 View
      */
     private static StatusBarView createTranslucentStatusBarView(Activity activity, int alpha) {
-        // 绘制一个和状态栏一样高的矩形
+        // 繪製一個和狀態欄一樣高的矩形
         StatusBarView statusBarView = new StatusBarView(activity);
         LinearLayout.LayoutParams params =
                 new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getStatusBarHeight(activity));
@@ -545,23 +538,23 @@ public class StatusBarUtil {
     }
 
     /**
-     * 获取状态栏高度
+     * 獲取狀態欄高度
      *
      * @param context context
-     * @return 状态栏高度
+     * @return 狀態欄高度
      */
     public static int getStatusBarHeight(Context context) {
-        // 获得状态栏高度
+        // 獲得狀態欄高度
         int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
         return context.getResources().getDimensionPixelSize(resourceId);
     }
 
     /**
-     * 计算状态栏颜色
+     * 計算狀態欄顏色
      *
      * @param color color值
      * @param alpha alpha值
-     * @return 最终的状态栏颜色
+     * @return 最終的狀態欄顏色
      */
     private static int calculateStatusColor(@ColorInt int color, int alpha) {
         float a = 1 - alpha / 255f;

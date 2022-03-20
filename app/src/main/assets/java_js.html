@@ -1,16 +1,16 @@
 <html>
 <head>
-    <title>AndroidÓëJS½»»¥ÊµÀı</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+    <title>Androidèˆ‡JSäº¤äº’å¯¦ä¾‹</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui">
-    <!--Javaµ÷ÓÃWebViewÀïµÄjs´úÂë-->
+    <!--Javaèª¿ç”¨WebViewè£¡çš„jsä»£ç¢¼-->
     <script type="text/javascript">
         function javacalljs(){
              document.getElementById("content").innerHTML +=
-                 "<br\>javaµ÷ÓÃÁËjsº¯Êı£¬ÎŞ²Î";
+                 "<br\>javaèª¿ç”¨äº†jså‡½æ•¸ï¼Œç„¡åƒæ•¸";
         }
 
-        <!--ÕâÀïÈ¡µ½µÄÊÇ android¶Ë´«¹ıÀ´µÄÊı¾İ-->
+        <!--é€™è£¡å–åˆ°çš„æ˜¯ androidç«¯å‚³éä¾†çš„æ•¸æ“š-->
         function javacalljswithargs(data){
              document.getElementById("content").innerHTML +=
                  ("<br\>"+data);
@@ -19,13 +19,13 @@
     </script>
 </head>
 <body>
-    <br/><br/>
-    <div>Js´úÂëµ÷ÓÃJava´úÂë: </div>
-    <!--WebViewÀïµÄjs´úÂëµ÷ÓÃJava±¾µØ·½·¨-->
-    <li><a onClick="window.injectedObject.startFunction()">µã»÷µ÷ÓÃjava´úÂë</a></li>
-    <!--¿ÉÒÔ½«android¶Ë´«¹ıÀ´µÄÊı¾İ£¬´¦Àíºó,·ÅÔÚÕâÀïÔÙ´«¸øandroid¶Ë-->
-    <li><a onClick="window.injectedObject.startFunction('ÎÒÊÇÍøÒ³´«³öÀ´µÄÊı¾İ')">µã»÷µ÷ÓÃjava´úÂë²¢´«µİ²ÎÊı</a></li><br/>
+<br/><br/>
+<div>Jsä»£ç¢¼èª¿ç”¨Javaä»£ç¢¼: </div>
+<!--WebViewè£¡çš„jsä»£ç¢¼èª¿ç”¨Javaæœ¬åœ°æ–¹æ³•-->
+<li><button onClick="window.injectedObject.startFunction()">é»æ“Šèª¿ç”¨javaä»£ç¢¼</button></li>
+<!--å¯ä»¥å°‡androidç«¯å‚³éä¾†çš„æ•¸æ“šï¼Œè™•ç†å¾Œ,æ”¾åœ¨é€™è£¡å†å‚³çµ¦androidç«¯-->
+<li><button onClick="window.injectedObject.startFunction('æˆ‘æ˜¯ç¶²é å‚³å‡ºä¾†çš„æ•¸æ“š')">é»æ“Šèª¿ç”¨javaä»£ç¢¼ä¸¦å‚³éåƒæ•¸</button></li><br/>
 
-<div id="content">Javaµ÷ÓÃJs´úÂë£¬ÄÚÈİÏÔÊ¾: </div>
+<div id="content">Javaèª¿ç”¨Jsä»£ç¢¼ï¼Œå…§å®¹é¡¯ç¤º: </div>
 </body>
 </html>

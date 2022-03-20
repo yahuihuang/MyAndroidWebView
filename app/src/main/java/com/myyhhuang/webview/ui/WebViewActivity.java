@@ -42,34 +42,29 @@ import com.myyhhuang.webview.utils.StatusBarUtil;
 import com.myyhhuang.webview.utils.WebTools;
 
 /**
- * 网页可以处理:
- * 点击相应控件：
- * - 拨打电话、发送短信、发送邮件
- * - 上传图片(版本兼容)
- * - 全屏播放网络视频
- * - 进度条显示
- * - 返回网页上一层、显示网页标题
+ * 網頁可以處理:
+ * 點擊相應控件：
+ * - 撥打電話、發送短信、發送郵件
+ * - 上傳圖片(版本兼容)
+ * - 全屏播放網絡視頻
+ * - 進度條顯示
+ * - 返回網頁上一層、顯示網頁標題
  * JS交互部分：
- * - 前端代码嵌入js(缺乏灵活性)
- * - 网页自带js跳转
- * 被作为第三方浏览器打开
- *
- * @author jingbin
- * link to https://github.com/youlookwhat/ByWebView
- * new to {@link ByWebViewActivity}
+ * - 前端代碼嵌入js(缺乏靈活性)
+ * - 網頁自帶js跳轉
+ * 被作為第三方瀏覽器打開
  */
-@Deprecated
 public class WebViewActivity extends AppCompatActivity implements IWebPageView {
 
-    // 进度条
+    // 進度條
     private WebProgress mProgressBar;
-    // 全屏时视频加载view
+    // 全屏時視頻加載view
     private FrameLayout videoFullView;
-    // 加载视频相关
+    // 加載視頻相關
     private MyWebChromeClient mWebChromeClient;
-    // 网页链接
+    // 網頁鏈接
     private String mUrl;
-    // 可滚动的title 使用简单 没有渐变效果，文字两旁有阴影
+    // 可滾動的title 使用簡單 沒有漸變效果，文字兩旁有陰影
     private Toolbar mTitleToolBar;
     private WebView webView;
     private TextView tvGunTitle;
@@ -141,21 +136,21 @@ public class WebViewActivity extends AppCompatActivity implements IWebPageView {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:// 返回键
+            case android.R.id.home:// 返回鍵
                 handleFinish();
                 break;
             case R.id.actionbar_share:// 分享到
                 String shareText = webView.getTitle() + webView.getUrl();
                 WebTools.share(WebViewActivity.this, shareText);
                 break;
-            case R.id.actionbar_cope:// 复制链接
+            case R.id.actionbar_cope:// 複製鏈接
                 WebTools.copy(webView.getUrl());
-                Toast.makeText(this, "复制成功", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "複製成功", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.actionbar_open:// 打开链接
+            case R.id.actionbar_open:// 打開鏈接
                 WebTools.openLink(WebViewActivity.this, webView.getUrl());
                 break;
-            case R.id.actionbar_webview_refresh:// 刷新页面
+            case R.id.actionbar_webview_refresh:// 刷新頁面
                 webView.reload();
                 break;
             default:
@@ -167,44 +162,44 @@ public class WebViewActivity extends AppCompatActivity implements IWebPageView {
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface"})
     private void initWebView() {
         WebSettings ws = webView.getSettings();
-        // 保存表单数据
+        // 保存表單數據
         ws.setSaveFormData(true);
-        // 是否应该支持使用其屏幕缩放控件和手势缩放
+        // 是否應該支持使用其屏幕縮放控件和手勢縮放
         ws.setSupportZoom(true);
         ws.setBuiltInZoomControls(true);
         ws.setDisplayZoomControls(false);
-        // 启动应用缓存
+        // 啟動應用緩存
         ws.setAppCacheEnabled(true);
-        // 设置缓存模式
+        // 設置緩存模式
         ws.setCacheMode(WebSettings.LOAD_DEFAULT);
-        // setDefaultZoom  api19被弃用
-        // 网页内容的宽度自适应屏幕
+        // setDefaultZoom  api19被棄用
+        // 網頁內容的寬度自適應屏幕
         ws.setLoadWithOverviewMode(true);
         ws.setUseWideViewPort(true);
-        // 网页缩放至100，一般的网页达到屏幕宽度效果，个别除外
+        // 網頁縮放至100，一般的網頁達到屏幕寬度效果，個別除外
 //        webView.setInitialScale(100);
-        // 关掉下滑弧形阴影
+        // 關掉下滑弧形陰影
 //        webView.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
-        // 告诉WebView启用JavaScript执行。默认的是false。
+        // 告訴WebView啟用JavaScript執行。默認的是false。
         ws.setJavaScriptEnabled(true);
-        //  页面加载好以后，再放开图片
+        //  頁面加載好以後，再放開圖片
         ws.setBlockNetworkImage(false);
-        // 使用localStorage则必须打开
+        // 使用localStorage則必須打開
         ws.setDomStorageEnabled(true);
-        // 排版适应屏幕
+        // 排版適應屏幕
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             ws.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
         } else {
             ws.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
         }
-        // WebView是否新窗口打开(加了后可能打不开网页)
+        // WebView是否新窗口打開(加了後可能打不開網頁)
 //        ws.setSupportMultipleWindows(true);
 
-        // webview从5.0开始默认不允许混合模式,https中不能加载http资源,需要设置开启。
+        // webview從5.0開始默認不允許混合模式,https中不能加載http資源,需要設置開啟。
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             ws.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         }
-        /** 设置字体默认缩放大小(改变网页字体大小,setTextSize  api14被弃用)*/
+        /** 設置字體默認縮放大小(改變網頁字體大小,setTextSize  api14被棄用)*/
         ws.setTextZoom(100);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             webView.setScrollBarSize(WebTools.dp2px(this, 3));
@@ -212,7 +207,7 @@ public class WebViewActivity extends AppCompatActivity implements IWebPageView {
 
         mWebChromeClient = new MyWebChromeClient(this);
         webView.setWebChromeClient(mWebChromeClient);
-        // 与js交互
+        // 與js交互
         webView.addJavascriptInterface(new MyJavascriptInterface(this), "injectedObject");
         webView.setWebViewClient(new MyWebViewClient(this));
         webView.setOnLongClickListener(new View.OnLongClickListener() {
@@ -262,9 +257,9 @@ public class WebViewActivity extends AppCompatActivity implements IWebPageView {
     }
 
     /**
-     * android与js交互：
-     * 前端注入js代码：不能加重复的节点，不然会覆盖
-     * 前端调用js代码
+     * android與js交互：
+     * 前端注入js代碼：不能加重複的節點，不然會覆蓋
+     * 前端調用js代碼
      */
     @Override
     public void onPageFinished(WebView view, String url) {
@@ -278,7 +273,7 @@ public class WebViewActivity extends AppCompatActivity implements IWebPageView {
     }
 
     /**
-     * 处理是否唤起三方app
+     * 處理是否喚起三方app
      */
     @Override
     public boolean isOpenThirdApp(String url) {
@@ -287,7 +282,7 @@ public class WebViewActivity extends AppCompatActivity implements IWebPageView {
 
     /**
      * 前端注入JS：
-     * 这段js函数的功能就是，遍历所有的img节点，并添加onclick函数，函数的功能是在图片点击的时候调用本地java接口并传递url过去
+     * 這段js函數的功能就是，遍歷所有的img節點，並添加onclick函數，函數的功能是在圖片點擊的時候調用本地java接口並傳遞url過去
      */
     private void loadImageClickJS() {
         loadJs("javascript:(function(){" +
@@ -301,7 +296,7 @@ public class WebViewActivity extends AppCompatActivity implements IWebPageView {
 
     /**
      * 前端注入JS：
-     * 遍历所有的<li>节点,将节点里的属性传递过去(属性自定义,用于页面跳转)
+     * 遍歷所有的<li>節點,將節點裡的屬性傳遞過去(屬性自定義,用於頁面跳轉)
      */
     private void loadTextClickJS() {
         loadJs("javascript:(function(){" +
@@ -315,25 +310,25 @@ public class WebViewActivity extends AppCompatActivity implements IWebPageView {
     }
 
     /**
-     * 传应用内的数据给html，方便html处理
+     * 傳應用內的數據給html，方便html處理
      */
     private void loadCallJS() {
         // 无参数调用
         loadJs("javascript:javacalljs()");
         // 传递参数调用
-        loadJs("javascript:javacalljswithargs('" + "android传入到网页里的数据，有参" + "')");
+        loadJs("javascript:javacalljswithargs('" + "android傳入到網頁裡的數據，有參數" + "')");
     }
 
     /**
      * get website source code
-     * 获取网页源码
+     * 獲取網頁源碼
      */
     private void loadWebsiteSourceCodeJS() {
         loadJs("javascript:window.injectedObject.showSource(document.getElementsByTagName('html')[0].innerHTML);");
     }
 
     /**
-     * 全屏时按返加键执行退出全屏方法
+     * 全屏時按返加鍵執行退出全屏方法
      */
     public void hideCustomView() {
         mWebChromeClient.onHideCustomView();
@@ -361,7 +356,7 @@ public class WebViewActivity extends AppCompatActivity implements IWebPageView {
     }
 
     /**
-     * 上传图片之后的回调
+     * 上傳圖片之後的回調
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
@@ -375,9 +370,9 @@ public class WebViewActivity extends AppCompatActivity implements IWebPageView {
 
 
     /**
-     * 使用singleTask启动模式的Activity在系统中只会存在一个实例。
-     * 如果这个实例已经存在，intent就会通过onNewIntent传递到这个Activity。
-     * 否则新的Activity实例被创建。
+     * 使用singleTask啟動模式的Activity在系統中只會存在一個實例。
+     * 如果這個實例已經存在，intent就會通過onNewIntent傳遞到這個Activity。
+     * 否則新的Activity實例被創建。
      */
     @Override
     protected void onNewIntent(Intent intent) {
@@ -386,7 +381,7 @@ public class WebViewActivity extends AppCompatActivity implements IWebPageView {
     }
 
     /**
-     * 作为三方浏览器打开传过来的值
+     * 作為三方瀏覽器打開傳過來的值
      * Scheme: https
      * host: www.jianshu.com
      * path: /p/1cbaf784c29c
@@ -410,7 +405,7 @@ public class WebViewActivity extends AppCompatActivity implements IWebPageView {
     }
 
     /**
-     * 直接通过三方浏览器打开时，回退到首页
+     * 直接通過三方瀏覽器打開時，回退到首頁
      */
     public void handleFinish() {
         supportFinishAfterTransition();
@@ -431,16 +426,16 @@ public class WebViewActivity extends AppCompatActivity implements IWebPageView {
     }
 
     /**
-     * 长按图片事件处理
+     * 長按圖片事件處理
      */
     private boolean handleLongImage() {
         final WebView.HitTestResult hitTestResult = webView.getHitTestResult();
-        // 如果是图片类型或者是带有图片链接的类型
+        // 如果是圖片類型或者是帶有圖片鏈接的類型
         if (hitTestResult.getType() == WebView.HitTestResult.IMAGE_TYPE ||
                 hitTestResult.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
-            // 弹出保存图片的对话框
+            // 彈出保存圖片的對話框
             new AlertDialog.Builder(WebViewActivity.this)
-                    .setItems(new String[]{"查看大图", "保存图片到相册"}, new DialogInterface.OnClickListener() {
+                    .setItems(new String[]{"查看大圖", "保存圖片到相冊"}, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             String picUrl = hitTestResult.getExtra();
@@ -470,12 +465,12 @@ public class WebViewActivity extends AppCompatActivity implements IWebPageView {
                 hideCustomView();
                 return true;
 
-                //返回网页上一页
+                //返回網頁上一頁
             } else if (webView.canGoBack()) {
                 webView.goBack();
                 return true;
 
-                //退出网页
+                //退出網頁
             } else {
                 handleFinish();
             }
@@ -493,9 +488,9 @@ public class WebViewActivity extends AppCompatActivity implements IWebPageView {
     protected void onResume() {
         super.onResume();
         webView.onResume();
-        // 支付宝网页版在打开文章详情之后,无法点击按钮下一步
+        // 支付寶網頁版在打開文章詳情之後,無法點擊按鈕下一步
         webView.resumeTimers();
-        // 设置为横屏
+        // 設置為橫屏
         if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
@@ -524,16 +519,16 @@ public class WebViewActivity extends AppCompatActivity implements IWebPageView {
     }
 
     /**
-     * 打开网页:
+     * 打開網頁:
      *
      * @param mContext 上下文
-     * @param mUrl     要加载的网页url
-     * @param mTitle   标题
+     * @param mUrl     要加載的網頁url
+     * @param mTitle   標題
      */
     public static void loadUrl(Context mContext, String mUrl, String mTitle) {
         Intent intent = new Intent(mContext, WebViewActivity.class);
         intent.putExtra("mUrl", mUrl);
-        intent.putExtra("mTitle", mTitle == null ? "加载中..." : mTitle);
+        intent.putExtra("mTitle", mTitle == null ? "加載中..." : mTitle);
         mContext.startActivity(intent);
     }
 }

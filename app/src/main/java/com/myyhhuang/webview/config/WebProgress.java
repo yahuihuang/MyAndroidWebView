@@ -20,62 +20,59 @@ import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
 
 /**
- * WebView进度条，原作者: cenxiaozhong，在此基础上修改优化：
- * 1. progress同时返回两次100时进度条出现两次
- * 2. 当一条进度没跑完，又点击其他链接开始第二次进度时，第二次进度不出现
- * 3. 修改消失动画时长，使其消失时看到可以进度跑完
- *
- * @author jingbin
- * Link to https://github.com/youlookwhat/WebProgress
+ * WebView進度條，原作者: cenxiaozhong，在此基礎上修改優化：
+ * 1. progress同時返回兩次100時進度條出現兩次
+ * 2. 當一條進度沒跑完，又點擊其他鏈接開始第二次進度時，第二次進度不出現
+ * 3. 修改消失動畫時長，使其消失時看到可以進度跑完
  */
 public class WebProgress extends FrameLayout {
 
     /**
-     * 默认匀速动画最大的时长
+     * 默認勻速動畫最大的時長
      */
     public static final int MAX_UNIFORM_SPEED_DURATION = 8 * 1000;
     /**
-     * 默认加速后减速动画最大时长
+     * 默認加速後減速動畫最大時長
      */
     public static final int MAX_DECELERATE_SPEED_DURATION = 450;
     /**
-     * 95f-100f时，透明度1f-0f时长
+     * 95f-100f時，透明度1f-0f時長
      */
     public static final int DO_END_ALPHA_DURATION = 630;
     /**
-     * 95f - 100f动画时长
+     * 95f - 100f動畫時長
      */
     public static final int DO_END_PROGRESS_DURATION = 500;
     /**
-     * 当前匀速动画最大的时长
+     * 當前勻速動畫最大的時長
      */
     private static int CURRENT_MAX_UNIFORM_SPEED_DURATION = MAX_UNIFORM_SPEED_DURATION;
     /**
-     * 当前加速后减速动画最大时长
+     * 當前加速後減速動畫最大時長
      */
     private static int CURRENT_MAX_DECELERATE_SPEED_DURATION = MAX_DECELERATE_SPEED_DURATION;
     /**
-     * 默认的高度(dp)
+     * 默認的高度(dp)
      */
     public static int WEB_PROGRESS_DEFAULT_HEIGHT = 3;
     /**
-     * 进度条颜色默认
+     * 進度條顏色默認
      */
     public static String WEB_PROGRESS_COLOR = "#2483D9";
     /**
-     * 进度条颜色
+     * 進度條顏色
      */
     private int mColor;
     /**
-     * 进度条的画笔
+     * 進度條的畫筆
      */
     private Paint mPaint;
     /**
-     * 进度条动画
+     * 進度條動畫
      */
     private Animator mAnimator;
     /**
-     * 控件的宽度
+     * 控件的寬度
      */
     private int mTargetWidth = 0;
     /**
@@ -83,11 +80,11 @@ public class WebProgress extends FrameLayout {
      */
     private int mTargetHeight;
     /**
-     * 标志当前进度条的状态
+     * 標誌當前進度條的狀態
      */
     private int TAG = 0;
     /**
-     * 第一次过来进度show，后面就是setProgress
+     * 第一次過來進度show，後面就是setProgress
      */
     private boolean isShow = false;
     public static final int UN_START = 0;
@@ -121,7 +118,7 @@ public class WebProgress extends FrameLayout {
     }
 
     /**
-     * 设置单色进度条
+     * 設置單色進度條
      */
     public void setColor(int color) {
         this.mColor = color;
@@ -138,10 +135,10 @@ public class WebProgress extends FrameLayout {
     }
 
     /**
-     * 设置渐变色进度条
+     * 設置漸變色進度條
      *
-     * @param startColor 开始颜色
-     * @param endColor   结束颜色
+     * @param startColor 開始顏色
+     * @param endColor   結束顏色
      */
     public void setColor(String startColor, String endColor) {
         this.setColor(Color.parseColor(startColor), Color.parseColor(endColor));
@@ -204,7 +201,7 @@ public class WebProgress extends FrameLayout {
             mAnimator.cancel();
         }
         mCurrentProgress = mCurrentProgress == 0 ? 0.00000001f : mCurrentProgress;
-        // 可能由于透明度造成突然出现的问题
+        // 可能由於透明度造成突然出現的問題
         setAlpha(1);
 
         if (!isFinished) {
@@ -331,7 +328,7 @@ public class WebProgress extends FrameLayout {
     }
 
     /**
-     * 显示进度条
+     * 顯示進度條
      */
     public void show() {
         isShow = true;
@@ -341,14 +338,14 @@ public class WebProgress extends FrameLayout {
     }
 
     /**
-     * 进度完成后消失
+     * 進度完成後消失
      */
     public void hide() {
         setWebProgress(100);
     }
 
     /**
-     * 为单独处理WebView进度条
+     * 為單獨處理WebView進度條
      */
     public void setWebProgress(int newProgress) {
         if (newProgress >= 0 && newProgress < 95) {

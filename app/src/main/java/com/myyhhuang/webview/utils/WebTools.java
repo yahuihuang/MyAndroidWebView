@@ -15,16 +15,12 @@ import com.myyhhuang.webview.App;
 import com.myyhhuang.webview.BuildConfig;
 import com.myyhhuang.webview.R;
 
-/**
- * Created by jingbin on 2017/2/13.
- */
-
 public class WebTools {
 
     /**
-     * 将 Android5.0以下手机不能直接打开mp4后缀的链接
+     * 將 Android5.0以下手機不能直接打開mp4後綴的鏈接
      *
-     * @param url 视频链接
+     * @param url 視頻鏈接
      */
     public static String getVideoHtmlBody(String title, String url) {
         return "<html>" +
@@ -43,9 +39,9 @@ public class WebTools {
 
 
     /**
-     * 实现文本复制功能
+     * 實現文本複制功能
      *
-     * @param content 复制的文本
+     * @param content 複製的文本
      */
     public static void copy(String content) {
         if (!TextUtils.isEmpty(content)) {
@@ -61,7 +57,7 @@ public class WebTools {
     }
 
     /**
-     * 使用浏览器打开链接
+     * 使用瀏覽器打開鏈接
      */
     public static void openLink(Context context, String content) {
         if (!TextUtils.isEmpty(content) && content.startsWith("http")) {
@@ -84,7 +80,7 @@ public class WebTools {
     }
 
     /**
-     * 通过包名找应用,不需要权限
+     * 通過包名找應用,不需要權限
      */
     public static boolean hasPackage(Context context, String packageName) {
         if (null == context || TextUtils.isEmpty(packageName)) {
@@ -94,18 +90,18 @@ public class WebTools {
             context.getPackageManager().getPackageInfo(packageName, PackageManager.GET_GIDS);
             return true;
         } catch (PackageManager.NameNotFoundException e) {
-            // 抛出找不到的异常，说明该程序已经被卸载
+            // 拋出找不到的異常，說明該程序已經被卸載
             return false;
         }
     }
 
     /**
-     * 默认处理流程：网页里可能唤起其他的app
+     * 默認處理流程：網頁裡可能喚起其他的app
      */
     public static boolean handleThirdApp(Activity activity, String backUrl) {
-        /**http开头直接跳过*/
+        /**http開頭直接跳過*/
         if (backUrl.startsWith("http")) {
-            // 可能有提示下载Apk文件
+            // 可能有提示下載Apk文件
             if (backUrl.contains(".apk")) {
                 startActivity(activity, backUrl);
                 return true;
@@ -113,7 +109,7 @@ public class WebTools {
             return false;
         }
         if (backUrl.contains("alipays")) {
-            // 网页跳支付宝支付
+            // 網頁跳支付寶支付
             if (hasPackage(activity, "com.eg.android.AlipayGphone")) {
                 startActivity(activity, backUrl);
             }
@@ -125,14 +121,14 @@ public class WebTools {
             }
         } else {
 
-            // 会唤起手机里有的App，如果不想被唤起，复制出来然后添加屏蔽即可
+            // 會喚起手機裡有的App，如果不想被喚起，複製出來然後添加屏蔽即可
             boolean isJump = true;
-            if (backUrl.contains("tbopen:")// 淘宝
-                    || backUrl.contains("openapp.jdmobile:")// 京东
-                    || backUrl.contains("jdmobile:")//京东
+            if (backUrl.contains("tbopen:")// 淘寶
+                    || backUrl.contains("openapp.jdmobile:")// 京東
+                    || backUrl.contains("jdmobile:")//京東
                     || backUrl.contains("zhihu:")// 知乎
                     || backUrl.contains("vipshop:")//
-                    || backUrl.contains("youku:")//优酷
+                    || backUrl.contains("youku:")//優酷
                     || backUrl.contains("uclink:")// UC
                     || backUrl.contains("ucbrowser:")// UC
                     || backUrl.contains("newsapp:")//
@@ -156,7 +152,7 @@ public class WebTools {
     private static void startActivity(Activity context, String url) {
         try {
 
-            // 用于DeepLink测试
+            // 用於DeepLink測試
             if (url.startsWith("will://")) {
                 Uri uri = Uri.parse(url);
                 Log.e("---------scheme", uri.getScheme() + "；host: " + uri.getHost() + "；Id: " + uri.getPathSegments().get(0));

@@ -13,11 +13,12 @@
     <string name="actionbar_share">Share it with friends\(^o^)/~</string>
     <string name="string_hit">Search or enter the url</string>
     <string name="bt_open_url">open url</string>
-    <string name="text_baidu">Open baidu</string>
+    <string name="text_youtube">Open Youtube</string>
     <string name="text_movie">Video playback</string>
     <string name="text_upload_photo">Upload picture test</string>
     <string name="text_js">Call, SMS, email, js injection</string>
     <string name="js_android">Js intermediates with android native code</string>
     <string name="deeplink">DeepLink test</string>
     <string name="string_toolbar">setCustomView</string>
+    <string name="webview">System WebView</string>
 </resources>

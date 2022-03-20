@@ -14,11 +14,9 @@ import androidx.annotation.RequiresApi;
 
 import static android.app.Activity.RESULT_OK;
 
-
 /**
- * Created by jingbin on 2019/07/27.
- * - 播放网络视频配置
- * - 上传图片(兼容)
+ * - 播放網絡視頻配置
+ * - 上傳圖片(兼容)
  */
 public class MyWebChromeClient extends WebChromeClient {
 
@@ -37,7 +35,7 @@ public class MyWebChromeClient extends WebChromeClient {
     }
 
     /**
-     * 播放网络视频时全屏会被调用的方法
+     * 播放網絡視頻時全屏會被調用的方法
      */
     @Override
     public void onShowCustomView(View view, CustomViewCallback callback) {
@@ -56,7 +54,7 @@ public class MyWebChromeClient extends WebChromeClient {
     }
 
     /**
-     * 视频播放退出全屏会被调用的
+     * 視頻播放退出全屏會被調用的
      */
     @Override
     public void onHideCustomView() {
@@ -77,7 +75,7 @@ public class MyWebChromeClient extends WebChromeClient {
     }
 
     /**
-     * 视频加载时loading
+     * 視頻加載時loading
      */
     @Override
     public View getVideoLoadingProgressView() {
@@ -94,7 +92,7 @@ public class MyWebChromeClient extends WebChromeClient {
     }
 
     /**
-     * 判断是否是全屏
+     * 判斷是否是全屏
      */
     public boolean inCustomView() {
         return (mXCustomView != null);
@@ -151,7 +149,7 @@ public class MyWebChromeClient extends WebChromeClient {
     }
 
     /**
-     * 5.0以下 上传图片成功后的回调
+     * 5.0以下 上傳圖片成功後的回調
      */
     public void mUploadMessage(Intent intent, int resultCode) {
         if (null == mUploadMessage) {
@@ -163,7 +161,7 @@ public class MyWebChromeClient extends WebChromeClient {
     }
 
     /**
-     * 5.0以上 上传图片成功后的回调
+     * 5.0以上 上傳圖片成功後的回調
      */
     public void mUploadMessageForAndroid5(Intent intent, int resultCode) {
         if (null == mUploadMessageForAndroid5) {

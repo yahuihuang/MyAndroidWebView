@@ -15,12 +15,11 @@ import android.webkit.WebViewClient;
 import androidx.appcompat.app.AlertDialog;
 
 /**
- * Created by jingbin on 2016/11/17.
- * 监听网页链接:
- * - 根据标识:打电话、发短信、发邮件
- * - 进度条的显示
- * - 添加javascript监听
- * - 唤起京东，支付宝，微信原生App
+ * 監聽網頁鏈接:
+ * - 根據標識:打電話、發短信、發郵件
+ * - 進度條的顯示
+ * - 添加javascript監聽
+ * - 喚起京東，支付寶，微信原生App
  */
 public class MyWebViewClient extends WebViewClient {
 
@@ -32,7 +31,7 @@ public class MyWebViewClient extends WebViewClient {
 
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
-        Log.e("jing", "----url:" + url);
+        Log.e("Grace", "----url:" + url);
         if (TextUtils.isEmpty(url)) {
             return false;
         }
@@ -42,7 +41,7 @@ public class MyWebViewClient extends WebViewClient {
 
     @Override
     public void onPageFinished(WebView view, String url) {
-        // html加载完成之后，添加监听图片的点击js函数
+        // html加載完成之後，添加監聽圖片的點擊js函數
         mIWebPageView.onPageFinished(view, url);
         super.onPageFinished(view, url);
     }
@@ -50,7 +49,7 @@ public class MyWebViewClient extends WebViewClient {
     @Override
     public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
         super.onReceivedError(view, errorCode, description, failingUrl);
-        //6.0以下执行
+        //6.0以下執行
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             return;
         }
@@ -62,7 +61,7 @@ public class MyWebViewClient extends WebViewClient {
     public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
         super.onReceivedHttpError(view, request, errorResponse);
 //        WebTools.handleReceivedHttpError(view, errorResponse);
-        // 这个方法在 android 6.0才出现
+        // 這個方法在 android 6.0才出現
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             int statusCode = errorResponse.getStatusCode();
             if (404 == statusCode || 500 == statusCode) {
@@ -76,7 +75,7 @@ public class MyWebViewClient extends WebViewClient {
     public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
         super.onReceivedError(view, request, error);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            if (request.isForMainFrame()) {//是否是为 main frame创建
+            if (request.isForMainFrame()) {//是否是為 main frame創建
                 String mErrorUrl = "file:///android_asset/404_error.html";
                 view.loadUrl(mErrorUrl);
             }
@@ -89,8 +88,8 @@ public class MyWebViewClient extends WebViewClient {
     @Override
     public void onReceivedSslError(WebView view, final SslErrorHandler handler, SslError error) {
         AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-        builder.setMessage("SSL认证失败，是否继续访问？");
-        builder.setPositiveButton("继续", new DialogInterface.OnClickListener() {
+        builder.setMessage("SSL認證失敗，是否繼續訪問？");
+        builder.setPositiveButton("繼續", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 handler.proceed();
@@ -111,7 +110,7 @@ public class MyWebViewClient extends WebViewClient {
     public void onScaleChanged(WebView view, float oldScale, float newScale) {
         super.onScaleChanged(view, oldScale, newScale);
         if (newScale - oldScale > 7) {
-            view.setInitialScale((int) (oldScale / newScale * 100)); //异常放大，缩回去。
+            view.setInitialScale((int) (oldScale / newScale * 100)); //異常放大，縮回去。
         }
     }
 

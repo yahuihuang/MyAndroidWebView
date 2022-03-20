@@ -64,7 +64,7 @@
 
                 <data
                     android:host="link"
-                    android:scheme="will" />
+                    android:scheme="myschema" />
             </intent-filter>
             <!--配置多个data-->
             <intent-filter>
@@ -75,9 +75,9 @@
 
                 <!--可以只配置一个scheme，也可以唤起来-->
                 <data
-                    android:host="jingbin.me"
+                    android:host="grace.me"
                     android:path="/deeplink"
-                    android:scheme="will" />
+                    android:scheme="myschema" />
             </intent-filter>
         </activity>
 

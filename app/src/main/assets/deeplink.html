@@ -6,20 +6,20 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
 
-        <title>DeepLink 测试</title>
+        <title>DeepLink 測試</title>
         <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui">
     </head>
     <body>
         <div>
-            <a id="J-call-app" href="javascript:;" class="label">立即打开（没有应用下载应用）&gt;&gt;</a>
-            <input id="J-download-app" type="hidden" name="storeurl" value="https://github.com/youlookwhat/MaterialDesign/raw/master/app/release/app-release.apk">
+            <a id="J-call-app" href="javascript:;" class="label">立即打開（沒有下載應用）&gt;&gt;</a>
+            <input id="J-download-app" type="hidden" name="storeurl" value="https://github.com/yahuihuang/MaterialDesign/raw/master/app/release/app-release.apk">
         </div>
 
         <div>
             <br/><br/>
-            <a href="will://link/testId?type=1&id=345">立即打开（直接打开）&gt;&gt;</a>
+            <a href="myschema://link/testId?type=1&id=345">立即打開（直接打開）&gt;&gt;</a>
             <br/><br/>
-            <a href="will://jingbin.me/deeplink?type=5&id=567">立即打开（打开同一页面的第二种配置）&gt;&gt;</a>
+            <a href="myschema://grace.me/deeplink?type=5&id=567">立即打開（打開同一頁面的第二種配置）&gt;&gt;</a>
         </div>
 
         <!--没有应用下载应用-->
@@ -29,8 +29,8 @@
                 var t;
                 var config = {
                     /*scheme:必须*/
-                    scheme_IOS: 'will://',
-                    scheme_Adr: 'will://share/520',
+                    scheme_IOS: 'myschema://',
+                    scheme_Adr: 'myschema://share/520',
                     download_url: document.getElementById('J-download-app').value,
                     timeout: 300
                 };

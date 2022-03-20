@@ -5,12 +5,12 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 /**
- * 用于判断是不是联网状态
+ * 用於判斷是不是聯網狀態
  */
 public class CheckNetwork {
 
     /**
-     * 判断网络是否连通
+     * 判斷網絡是否連通
      */
     public static boolean isNetworkConnected(Context context) {
         try {
@@ -20,7 +20,7 @@ public class CheckNetwork {
                 NetworkInfo info = cm.getActiveNetworkInfo();
                 return info != null && info.isConnected();
             } else {
-                /**如果context为空，就返回false，表示网络未连接*/
+                /**如果context為空，就返回false，表示網絡未連接*/
                 return false;
             }
         } catch (Exception e) {
@@ -35,7 +35,7 @@ public class CheckNetwork {
             NetworkInfo info = cm.getActiveNetworkInfo();
             return info != null && (info.getType() == ConnectivityManager.TYPE_WIFI);
         } else {
-            /**如果context为null就表示为未连接*/
+            /**如果context為null就表示為未連接*/
             return false;
         }
     }

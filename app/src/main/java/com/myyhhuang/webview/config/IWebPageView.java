@@ -5,45 +5,42 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 
-/**
- * Created by jingbin on 2019/07/27.
- */
 public interface IWebPageView {
 
     /**
-     * 显示webview
+     * 顯示webview
      */
     void showWebView();
 
     /**
-     * 隐藏webview
+     * 隱藏webview
      */
     void hindWebView();
 
     /**
-     * 进度条变化时调用
+     * 進度條變化時調用
      *
-     * @param newProgress 进度0-100
+     * @param newProgress 進度0-100
      */
     void startProgress(int newProgress);
 
     /**
-     * 添加视频全屏view
+     * 添加視頻全屏view
      */
     void fullViewAddView(View view);
 
     /**
-     * 显示全屏view
+     * 顯示全屏view
      */
     void showVideoFullView();
 
     /**
-     * 隐藏全屏view
+     * 隱藏全屏view
      */
     void hindVideoFullView();
 
     /**
-     * 设置横竖屏
+     * 設置橫豎屏
      */
     void setRequestedOrientation(int screenOrientationPortrait);
 
@@ -53,27 +50,27 @@ public interface IWebPageView {
     FrameLayout getVideoFullView();
 
     /**
-     * 加载视频进度条
+     * 加載視頻進度條
      */
     View getVideoLoadingProgressView();
 
     /**
-     * 返回标题处理
+     * 返回標題處理
      */
     void onReceivedTitle(WebView view, String title);
 
     /**
-     * 上传图片打开文件夹
+     * 上傳圖片打開文件夾
      */
     void startFileChooserForResult(Intent intent, int requestCode);
 
     /**
-     * 页面加载结束，添加js监听等
+     * 頁面加載結束，添加js監聽等
      */
     void onPageFinished(WebView view, String url);
 
     /**
-     * 是否处理打开三方app
+     * 是否處理打開三方app
      * @param url
      */
     boolean isOpenThirdApp(String url);
