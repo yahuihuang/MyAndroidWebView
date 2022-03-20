@@ -1,23 +1,24 @@
 <resources>
-    <string name="app_name">网页浏览器</string>
+    <string name="app_name">瀏覽器</string>
 
     <string name="action_update">更新</string>
-    <string name="action_about">关于</string>
+    <string name="action_about">關於</string>
     <string name="action_share">分享</string>
-    <string name="actionbar_search">搜索</string>
-    <string name="actionbar_more">更多信息</string>
+    <string name="actionbar_search">搜尋</string>
+    <string name="actionbar_more">更多資訊</string>
     <string name="actionbar_webview_share">分享到</string>
-    <string name="actionbar_webview_cope">复制链接</string>
-    <string name="actionbar_webview_open">浏览器打开</string>
+    <string name="actionbar_webview_cope">複製網址</string>
+    <string name="actionbar_webview_open">打開瀏覽器</string>
     <string name="actionbar_webview_refresh">刷新页面</string>
     <string name="actionbar_share">分享给朋友\(^o^)/~</string>
-    <string name="string_hit">搜索或输入网址</string>
-    <string name="bt_open_url">打开网页</string>
-    <string name="text_baidu">百度一下</string>
-    <string name="text_movie">视频播放</string>
-    <string name="text_upload_photo">上传图片测试</string>
-    <string name="text_js">电话、短信、邮件、注入js</string>
-    <string name="js_android">js与android原生代码互调</string>
-    <string name="deeplink">DeepLink 测试</string>
-    <string name="string_toolbar">与ToolBar联动，自定义WebView</string>
+    <string name="string_hit">搜尋或輸入網址</string>
+    <string name="bt_open_url">開啟網頁</string>
+    <string name="text_baidu">百度</string>
+    <string name="text_movie">播放視頻</string>
+    <string name="text_upload_photo">測試上傳圖片</string>
+    <string name="text_js">電話、簡訊、郵件、注入js</string>
+    <string name="js_android">js与android原碼互換</string>
+    <string name="deeplink">DeepLink 測試</string>
+    <string name="string_toolbar">與ToolBar聯動，自定義WebView</string>
+    <string name="webview">系统WebView</string>
 </resources>

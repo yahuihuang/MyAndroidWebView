@@ -4,7 +4,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
     defaultConfig {
-        applicationId "com.example.jingbin.webviewstudy"
+        applicationId "com.myyhhuang.webview"
         minSdkVersion 14
         targetSdkVersion 29
         versionCode 15
@@ -49,6 +49,4 @@ dependencies {
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.8.1'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation files('libs/tbs_sdk_thirdapp_v4.3.0.253_44153_sharewithdownloadwithfile_withoutGame_obfs_20220117_105333.jar')
-    implementation project(':ByWebView')
-//    implementation 'com.github.youlookwhat:ByWebView:1.2.0'
 }
